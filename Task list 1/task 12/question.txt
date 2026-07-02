@@ -1,0 +1,3 @@
+Task 12 - Dynamic form validation
+
+Create a form with fields such as name, email and password and validate the inputs in realtime. Show error messsages if the inputs do no meet the specified criteria.

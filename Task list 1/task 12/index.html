@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="laptop-img">
+                <img src="assests/laptop_img.avif" alt="">
+            </div>
+
+            <div class="contact-us">
+                <div class="address">
+                    <img src="assests/location.svg" alt="">
+                    <p>
+                        611, 612, SATYAMEV EMINENCE, nr. Shukan Mall, Sola, Ahmedabad, Gujarat 380060
+                    </p>
+                </div>
+                <div class="contact">
+                    <img src="assests/phone.png" alt="">
+                    <p>
+                        +91 9876543210
+                    </p>
+                </div>
+                <div class="email">
+                    <img src="assests/mail.png" alt="">
+                    <p>
+                        support@aceanalytics.com
+                    </p>
+                </div>
+            </div>
+            <div class="reach-out">
+                <img src="assests/instagram.png" class="ig">
+                <img src="assests/facebook.png" class="fb">
+                <img src="assests/twitter.png" class="x">
+            </div>
+        </div>
+
+
+        <form class="form">
+            <div class="title">
+                Dynamic Form Validation
+            </div>
+            <label for="fname">
+                <p>First Name</p>
+                <input type="text" name="fname" id="fname">
+                <span class="error" id="fname-error"></span>
+            </label>
+            <label for="lname">
+                <p>Last Name</p>
+                <input type="text" name="lname" id="lname">
+                <span class="error" id="lname-error"></span>
+            </label>
+            <label for="email">
+                <p>Email</p>
+                <input type="email" name="email" id="email">
+                <span class="error" id="email-error"></span>
+            </label>
+            <label for="password">
+                <p>Password</p>
+                <input type="password" name="password" id="password">
+                <span class="error" id="password-error"></span>
+            </label>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

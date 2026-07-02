@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card Creation and Customization</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="left" id="left">
+
+            <div class="business-card-clean">
+                <!-- Front -->
+                <div class="clean clean-front-card">
+
+                    <div class="company-user">
+
+                        <div class="company">
+                            <img src="https://placehold.co/50x50?text=Logo" alt="Company Logo"
+                                class="company-logo clean-preview-logo draggable" data-id="logo">
+
+                            <span class="company-name clean-preview-company draggable" data-id="company-name">
+                                Company Name
+                            </span>
+                        </div>
+
+                        <div class="user-info">
+                            <span class="card-name clean-preview-name draggable" data-id="name">
+                                Your Name
+                            </span>
+
+                            <span class="card-designation clean-preview-designation draggable" data-id="designation">
+                                Your Designation
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="card-details">
+
+                        <span class="card-website clean-preview-website draggable" data-id="website">
+                            <i class="fa-solid fa-globe"></i>
+                            www.example.com
+                        </span>
+
+                        <div class="contact-info">
+
+                            <div class="clean-preview-phone draggable" data-id="phone">
+                                <i class="fa-solid fa-phone" ></i>
+                                Contact: +91 9876543210
+                            </div>
+
+                            <div class="clean-preview-email draggable" data-id="email">
+                                <i class="fa-solid fa-envelope"></i>
+                                Email: john@example.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Back -->
+                <div class="clean clean-back-card hidden">
+
+                    <div class="company-back">
+
+                        <div class="company-title">
+
+                            <img src="https://placehold.co/50x50?text=Logo" alt="Company Logo"
+                                class="company-logo clean-preview-logo draggable" data-id="logo-back">
+
+                            <span class="company-name clean-preview-company draggable" data-id="company-name-back">
+                                Company Name
+                            </span>
+
+                        </div>
+
+                        <div class="company-address clean-preview-address draggable" data-id="address">
+                            Address
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="Caption" id="clean-caption">
+                <h3 class="title">Clean Card</h3>
+                <div class="subtitle">Design your own card from scratch (draggable content)</div>
+                <div class="download-clean hidden">
+                    <button id="download-btn-pdf-clean"><i class="fa-solid fa-download"></i> Download PDF</button>
+                </div>
+            </div>
+
+            <div class="std-form-div hidden">
+
+                <div class="standard-form">
+
+                    <label>Company Name</label>
+                    <input type="text" id="company-input">
+
+                    <label>Website</label>
+                    <input type="text" id="website-input">
+
+                    <label>Your Name</label>
+                    <input type="text" id="name-input">
+
+                    <label>Designation</label>
+                    <input type="text" id="designation-input">
+
+                    <label>Phone</label>
+                    <input type="text" id="phone-input">
+
+                    <label>Email</label>
+                    <input type="email" id="email-input">
+
+                    <label>Address</label>
+                    <input type="text" id="address-input">
+                </div>
+
+                <div class="upload-img">
+                    <label for="logo" class="upload-btn">Upload Logo</label>
+                    <input type="file" id="logo" accept="image/*">
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="right" id="right">
+
+            <div id="business-card-std">
+
+                <!-- front -->
+                <div class="standard std-front-card">
+                    <div class="company-user">
+                        <div class="company">
+                            <img src="https://placehold.co/50x50?text=Logo" alt="Company Logo"
+                                class="company-logo preview-logo">
+                            <span class="company-name preview-company">Company Name</span>
+                        </div>
+                        <div class="user-info">
+                            <span class="card-name" id="preview-name">Your Name</span>
+                            <span class="card-designation" id="preview-designation">Your Designation</span>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <span class="card-website" id="preview-website"><i class="fa-solid fa-globe"></i>
+                            www.example.com</span>
+                        <div class="contact-info">
+                            <div id="preview-phone"><i class="fa-solid fa-phone"></i> Contact: +91 9876543210</div>
+                            <div id="preview-email"><i class="fa-solid fa-envelope"></i> Email: john@example.com</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- back -->
+                <div class="standard std-back-card hidden">
+                    <div class="company-back">
+                        <div class="company-title">
+                            <img src="https://placehold.co/50x50?text=Logo" alt="Company Logo"
+                                class="company-logo preview-logo">
+                            <span class="company-name preview-company">Company Name</span>
+                        </div>
+                        <div class="company-address preview-address">
+                            Address
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Caption" id="std-caption">
+                <h3 class="title">Standard Card</h3>
+                <div class="subtitle">Choose pre-designed card.</div>
+                <div class="download-std hidden">
+                    <button id="download-btn-pdf-std"><i class="fa-solid fa-download"></i> Download PDF</button>
+                </div>
+            </div>
+
+            <div class="clean-form-div hidden">
+
+                <div class="clean-form">
+
+                    <label>Company Name</label>
+                    <input type="text" id="company-input-clean">
+
+                    <label>Website</label>
+                    <input type="text" id="website-input-clean">
+
+                    <label>Your Name</label>
+                    <input type="text" id="name-input-clean">
+
+                    <label>Designation</label>
+                    <input type="text" id="designation-input-clean">
+
+                    <label>Phone</label>
+                    <input type="text" id="phone-input-clean">
+
+                    <label>Email</label>
+                    <input type="email" id="email-input-clean">
+
+                    <label>Address</label>
+                    <input type="text" id="address-input-clean">
+                </div>
+        
+                <div class="color-picker">
+                    <label for="fontColor">Font Color:</label>
+                    <input type="color" id="fontColor" value="#000000">
+                </div>
+
+                <div class="upload-img-clean">
+
+                    <label for="logo" class="upload-btn-clean">Upload Logo</label>
+                    <input type="file" id="logo-clean" accept="image/*">
+                </div>
+
+                <div class="upload-bg">
+                    <label for="logo" class="upload-btn-clean">Upload custom background</label>
+                    <input type="file" id="bg-clean" accept="image/*">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

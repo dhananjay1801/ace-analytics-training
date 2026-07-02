@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Wizard Form with Data Table Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <form class="user-form">
+            <div class="form">
+                <div class="step-1">
+                    <h3 class="title">Step 1: Basic Information</h3>
+
+                    <div class="info info-1">
+
+                        <div class="form-row">
+                            <label for="fname">
+                                First Name<span class="fugly">*</span>:
+                            </label>
+
+                            <div class="input-group">
+                                <input type="text" name="fname" id="fname">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="lname">
+                                Last Name<span class="fugly">*</span>:
+                            </label>
+                            <div class="input-group">
+                                <input type="text" name="lname" id="lname">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="gender-label">
+                                Gender <span class="fugly">*</span>:
+                            </label>
+
+                            <div class="gender-options">
+                                <label>
+                                    <input type="radio" name="gender" id="male" value="Male">
+                                    Male
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="gender" id="female" value="Female">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-2">
+                    <h3 class="title">Step 2: Contact Details</h3>
+                    <div class="info info-2">
+                        <div class="form-row">
+                            <label for="email">
+                                Email <span class="fugly">*</span>:
+                            </label>
+                            <div class="input-group">
+                                <input type="email" name="email" id="email" placeholder="john@example.com">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="contact">Contact No.:</label>
+
+                            <div class="input-group">
+                                <div class="contact-group">
+
+                                    <select name="country-code" id="country-code">
+                                        <option value=>-- Select --</option>
+                                        <option value="+91-">🇮🇳 +91</option>
+                                        <option value="+1-">🇺🇸 +1</option>
+                                        <option value="+44-">🇬🇧 +44</option>
+                                        <option value="+61-">🇦🇺 +61</option>
+                                        <option value="+81-">🇯🇵 +81</option>
+                                        <option value="+49-">🇩🇪 +49</option>
+                                        <option value="+33-">🇫🇷 +33</option>
+                                        <option value="+971-">🇦🇪 +971</option>
+                                        <option value="+65-">🇸🇬 +65</option>
+                                        <option value="+86-">🇨🇳 +86</option>
+                                    </select>
+                                    <input type="tel" name="contact" id="contact">
+                                </div>
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="dob">
+                                Date of Birth <span class="fugly">*</span>:
+                            </label>
+                            <div class="input-group">
+                                <input type="text" name="dob" id="dob" placeholder="MM/DD/YYYY">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="zip">
+                                ZIP Code:
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="zip" name="zip" maxlength="6">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="ip">
+                                IP Address:
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="ip" name="ip">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-3">
+                    <h3 class="title">Step 3: Preferences and Confirmation</h3>
+
+                    <div class="info info-3">
+
+                        <div class="form-row">
+                            <label for="sport">
+                                Favorite Sport <span class="fugly">*</span>:
+                            </label>
+
+                            <select name="sport" id="sport" class=>
+                                <option value="">-- Select --</option>
+                                <option value="Cricket">🏏 Cricket</option>
+                                <option value="Football">⚽ Football</option>
+                                <option value="Badminton">🏸 Badminton</option>
+                                <option value="Tennis">🎾 Tennis</option>
+                                <option value="Baseball">⚾ Baseball</option>
+                                <option value="F1">🏎️ F1</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="about">
+                                About Yourself:
+                            </label>
+
+                            <textarea name="about" id="about" maxlength="200"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="hours">
+                                For how many hours?:
+                            </label>
+
+                            <div class="input-group">
+                                <input type="text" id="hours" name="hours">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="money">
+                                Money:
+                            </label>
+
+                            <div class="input-group">
+                                <input type="text" id="money" name="money">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+
+                        <div class="tnc-container">
+                            <input type="checkbox" id="tnc" name="tnc">
+                        
+                            <div class="tnc">
+                                <label for="tnc" class="tnc-row">
+                                    I have read and agree to the
+                                    <a href="#">Terms and Conditions</a>.
+                                </label>
+                        
+                                <p id="tnc-error" class="field-error"></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="nav-btns">
+                    <button type="button" class="prev nav-hidden"><i
+                            class="fa-solid fa-angle-left fa-canvas-square"></i> Previous</button>
+                    <button type="button" class="next">Next <i class="fa-solid fa-angle-right"></i></button>
+                    <button type="submit" class="submit nav-hidden">Submit</button>
+                </div>
+
+            </div>
+        </form>
+
+        <div class="table">
+            <table>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Email ID</th>
+                    <th>Contact No.</th>
+                    <th>DOB (MM/DD/YYYY)</th>
+                    <th>Favorite Sport</th>
+                    <th>About</th>
+                    <th>Hours</th>
+                    <th>IP Address</th>
+                    <th>ZIP Code</th>
+                    <th>Money</th>
+                    <th>Agreement Status</th>
+                    <th>
+                        Edit/Delete
+                    </th>
+                </tr>
+                <tbody class="table-body">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

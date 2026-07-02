@@ -1,0 +1,80 @@
+body{
+    background-color: #28282B;
+}
+
+.calculator{
+    height: 430px;
+    width: 260px;
+    border: 1px solid black;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    background-color: rgb(146, 146, 146);
+    border-radius: 10px;
+}
+
+.title{
+    margin: auto;
+    margin-top: 10px;
+    font-weight: 900;
+}
+
+.display{
+    border: 1px solid red;
+    height: 100px;
+    margin: 10px;
+    background-color: #28282B;
+    color: white;
+    font-size: xx-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.buttons{
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+}
+
+.numbers{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.operations{
+    display: grid;
+    gap: 10px;
+}
+
+.btn-del, .btn-1, .btn-2, .btn-3, .btn-4, .btn-5, .btn-6, .btn-7, .btn-8, .btn-9, .btn-0, .btn-add, .btn-sub, .btn-mul, .btn-div, .btn-eq{
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    background: linear-gradient(90deg,rgba(204, 204, 204, 1) 0%, rgba(79, 79, 79, 1) 50%, rgba(0, 0, 0, 1) 100%);
+}
+
+.btn-del:hover, .btn-1:hover, .btn-2:hover, .btn-3:hover, .btn-4:hover, .btn-5:hover, .btn-6:hover, .btn-7:hover, .btn-8:hover, .btn-9:hover, .btn-0:hover, .btn-add:hover, .btn-sub:hover, .btn-mul:hover, .btn-div:hover, .btn-eq:hover{
+    background: #353935;
+}
+
+.lower, .upper{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+    max-width: 100%;
+    overflow: hidden;
+}
