@@ -7,7 +7,7 @@ body {
 }
 
 .menu {
-    width: 500px;
+    min-width: 500px;
     background-color: #ffffff;
     height: 72px;
     padding: 0 32px;
@@ -16,7 +16,7 @@ body {
     display: flex;
     gap: 28px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     font-weight: 500;
     font-size: 15px;
     box-sizing: border-box;
@@ -129,12 +129,16 @@ body {
     cursor: pointer;
 }
 
-#select-node {
+.select-node {
     padding: 10px;
     border: none;
     background-color: #c7c7c7;
     outline: none;
     border-radius: 10px;
-    width: 80px;
+    width: 100px;
 }
 
+#select-chain{
+    display: flex;
+    gap: 10px;
+}

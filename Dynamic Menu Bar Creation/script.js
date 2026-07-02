@@ -16,11 +16,13 @@ let tree = [
 let id_inc = 2;
 
 const container = document.querySelector('.tree');
-const selectNode = document.getElementById('select-node');
 const inputName = document.getElementById('input-name');
 const addBtn = document.getElementById('add-btn');
 const saveBtn = document.getElementById('save-btn');
 let editingId = null;
+const selectChain = document.getElementById('select-chain');
+let selectedPath = [];
+
 
 function findNode(nodes, id) {
     for (let node of nodes) {
@@ -40,46 +42,77 @@ function render() {
         container.appendChild(createNode(child, 0));
     });
 
-    renderSelectOptions();
+    renderSelectChain();
 }
 
-function renderSelectOptions() {
-    const previousValue = selectNode.value;
-    selectNode.innerHTML = "";
+function renderSelectChain() {
+    selectChain.innerHTML = "";
 
-    function addOptions(nodes) {
-        nodes.forEach(node => {
+    const rootSelect = document.createElement('select');
+    const rootOpt = document.createElement('option');
+    rootOpt.value = tree[0].id;
+    rootOpt.textContent = tree[0].name;
+    rootSelect.appendChild(rootOpt);
+    rootSelect.value = String(tree[0].id);
+    selectChain.appendChild(rootSelect);
+    rootSelect.classList.add('select-node');
+
+    let currentSiblings = tree[0].children;
+    let level = 0;
+
+    while (currentSiblings && currentSiblings.length > 0) {
+        const thisLevel = level;
+    
+        const select = document.createElement('select');
+        select.dataset.level = thisLevel;
+        select.classList.add('select-node');
+    
+        const blankOpt = document.createElement('option');
+        blankOpt.value = "";
+        blankOpt.textContent = "-- none --";
+        select.appendChild(blankOpt);
+    
+        currentSiblings.forEach(node => {
             const opt = document.createElement('option');
             opt.value = node.id;
             opt.textContent = node.name;
-            selectNode.appendChild(opt);
-            addOptions(node.children);
+            select.appendChild(opt);
         });
-    }
-
-    addOptions(tree);
-
-    if (previousValue && [...selectNode.options].some(o => o.value === previousValue)) {
-        selectNode.value = previousValue;
-    } else {
-        selectNode.value = String(tree[0].id);
+    
+        const chosenId = selectedPath[thisLevel];
+        const validChoice = currentSiblings.some(n => n.id === chosenId);
+        const activeId = validChoice ? chosenId : "";
+        select.value = activeId === "" ? "" : String(activeId);
+        selectedPath[thisLevel] = activeId === "" ? undefined : activeId;
+    
+        select.addEventListener('change', () => {
+            const val = select.value;
+            selectedPath[thisLevel] = val === "" ? undefined : Number(val);
+            selectedPath.length = thisLevel + 1;
+            renderSelectChain();
+        });
+    
+        selectChain.appendChild(select);
+    
+        if (activeId === "") break;
+    
+        const chosenNode = findNode(tree, activeId);
+        currentSiblings = chosenNode.children;
+        level++;
     }
 }
 
 addBtn.addEventListener('click', () => {
-    const parentId = selectNode.value;
+    const validIds = selectedPath.filter(id => id !== undefined);
+    const parentId = validIds.length > 0 ? validIds[validIds.length - 1] : tree[0].id;
     const name = inputName.value.trim();
 
-    if (!parentId) {
-        alert('Please select a node to add a child to.');
-        return;
-    }
     if (!name) {
         alert('Node name cannot be blank.');
         return;
     }
 
-    addChild(tree, Number(parentId), name);
+    addChild(tree, parentId, name);
     inputName.value = '';
     render();
 });
@@ -95,7 +128,7 @@ function createNode(node, depth) {
     nodeEl.className = 'node';
     nodeEl.style.marginLeft = `${depth + 60}px`;
 
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    const randomColor = colors[node.id % colors.length];
 
     nodeEl.innerHTML = `
         <div class="node-top">
@@ -121,7 +154,17 @@ function createNode(node, depth) {
     
         editingId = node.id;
         inputName.value = node.name;
-        selectNode.value = String(node.parent);
+    
+        const path = [];
+        let current = findNode(tree, node.parent);
+        while (current && current.id !== tree[0].id) {
+            path.unshift(current.id);
+            current = findNode(tree, current.parent);
+        }
+        if (node.parent !== tree[0].id) path.push(node.parent);
+    
+        selectedPath = path;
+        renderSelectChain();
     
         addBtn.classList.add('hidden');
         saveBtn.classList.remove('hidden');
