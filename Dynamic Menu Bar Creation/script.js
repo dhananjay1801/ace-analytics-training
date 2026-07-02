@@ -14,149 +14,117 @@ let tree = [
     }
 ];
 let id_inc = 2;
-let openNodes = new Set();
 
-const nodes = document.querySelectorAll('.node')
-
-nodes.forEach((node) => {
-    const icon = node.querySelector('.option');
-    const submenu = node.querySelector('.submenu');
-
-    if (!icon || !submenu) return;
-
-    icon.addEventListener('click', (e) => {
-        e.stopPropagation();
-        document.querySelectorAll('.submenu').forEach(menu => {
-            if (menu !== submenu) {
-                menu.classList.add('hidden');
-            }
-        });
-        submenu.classList.toggle('hidden');
-    });
-});
-
-// close menu on clicking outside focus
-document.addEventListener('click', () => {
-    document.querySelectorAll('.submenu').forEach(menu => {
-        menu.classList.add('hidden');
-    });
-});
+const container = document.querySelector('.tree');
+const selectNode = document.getElementById('select-node');
+const inputName = document.getElementById('input-name');
+const addBtn = document.getElementById('add-btn');
+const saveBtn = document.getElementById('save-btn');
+let editingId = null;
 
 function findNode(nodes, id) {
     for (let node of nodes) {
         if (node.id === id) return node;
-
         const found = findNode(node.children, id);
         if (found) return found;
     }
     return null;
 }
 
-const container = document.querySelector('.menu');
-
-function render(){
+function render() {
     container.innerHTML = "";
 
-    const root = tree[0]; // the root node, never rendered as a visible box
+    const root = tree[0];
 
     root.children.forEach(child => {
-        container.appendChild(createNode(child));
+        container.appendChild(createNode(child, 0));
     });
 
-    container.appendChild(createAddRootButton());
+    renderSelectOptions();
 }
 
-function createAddRootButton(){
-    const btn = document.createElement('div');
-    btn.className = 'add-root-btn';
-    btn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
+function renderSelectOptions() {
+    const previousValue = selectNode.value;
+    selectNode.innerHTML = "";
 
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let name = prompt("Enter node name:");
-        if (name === null) return;
-        name = name.trim();
-        if (!name) {
-            alert("Node name cannot be blank.");
-            return;
-        }
-        addChild(tree, 1, name);
-        render();
-    });
+    function addOptions(nodes) {
+        nodes.forEach(node => {
+            const opt = document.createElement('option');
+            opt.value = node.id;
+            opt.textContent = node.name;
+            selectNode.appendChild(opt);
+            addOptions(node.children);
+        });
+    }
 
-    return btn;
+    addOptions(tree);
+
+    if (previousValue && [...selectNode.options].some(o => o.value === previousValue)) {
+        selectNode.value = previousValue;
+    } else {
+        selectNode.value = String(tree[0].id);
+    }
 }
 
-render()
+addBtn.addEventListener('click', () => {
+    const parentId = selectNode.value;
+    const name = inputName.value.trim();
 
-function createNode(node) {
+    if (!parentId) {
+        alert('Please select a node to add a child to.');
+        return;
+    }
+    if (!name) {
+        alert('Node name cannot be blank.');
+        return;
+    }
+
+    addChild(tree, Number(parentId), name);
+    inputName.value = '';
+    render();
+});
+
+inputName.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') addBtn.click();
+});
+
+render();
+
+function createNode(node, depth) {
     const nodeEl = document.createElement('div');
     nodeEl.className = 'node';
+    nodeEl.style.marginLeft = `${depth + 60}px`;
+
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
     nodeEl.innerHTML = `
-        <span class="node-label" title=${node.name}>${node.name}</span>
-        <i class="fa-solid fa-ellipsis-vertical option"></i>
-        <div class="submenu hidden">
-            <div class="edit" title="Edit"><i class="fa-regular fa-pen-to-square"></i></div>
-            <div class="add" title="Add child"><i class="fa-solid fa-plus"></i></div>
-            <div class="del" title="Delete"><i class="fa-solid fa-trash"></i></div>
+        <div class="node-top">
+            <span class="node-label" title="${node.name}">${node.name}</span>
+
+            <div class="submenu">
+                <div class="edit" title="Edit"><i class="fa-regular fa-pen-to-square"></i></div>
+
+                <div class="del" title="Delete"><i class="fa-solid fa-trash"></i></div>
+            </div>
         </div>
     `;
 
-    nodeEl.style.backgroundColor = colors[node.id % colors.length];
+    const nodeTop = nodeEl.querySelector('.node-top');
+    nodeTop.style.backgroundColor = randomColor;
 
-    const icon = nodeEl.querySelector('.option');
     const submenu = nodeEl.querySelector('.submenu');
-    const addBtn = nodeEl.querySelector('.add');
     const editBtn = nodeEl.querySelector('.edit');
     const delBtn = nodeEl.querySelector('.del');
 
-    const childContainer = document.createElement('div');
-    childContainer.className = 'children';
-
-    if (openNodes.has(node.id)) {
-        childContainer.classList.add('open');
-    }
-
-    icon.addEventListener('click', (e) => {
-        e.stopPropagation();
-        document.querySelectorAll('.submenu').forEach(menu => {
-            if (menu !== submenu) menu.classList.add('hidden');
-        });
-        submenu.classList.toggle('hidden');
-    });
-
-    addBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        submenu.classList.add('hidden');
-
-        let name = prompt("Enter node name:");
-        if (name === null) return; // cancelled
-        name = name.trim();
-        if (!name) {
-            alert("Node name cannot be blank.");
-            return;
-        }
-
-        addChild(tree, node.id, name);
-        openNodes.add(node.id);
-        render();
-    });
-
     editBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        submenu.classList.add('hidden');
-
-        let newName = prompt("Rename node:", node.name);
-        if (newName === null) return;
-        newName = newName.trim();
-        if (!newName) {
-            alert("Node name cannot be blank.");
-            return;
-        }
-
-        editNode(tree, node.id, newName);
-        render();
+    
+        editingId = node.id;
+        inputName.value = node.name;
+        selectNode.value = String(node.parent);
+    
+        addBtn.classList.add('hidden');
+        saveBtn.classList.remove('hidden');
     });
 
     delBtn.addEventListener('click', (e) => {
@@ -179,29 +147,36 @@ function createNode(node) {
         render();
     });
 
-    node.children.forEach(child => {
-        childContainer.appendChild(createNode(child));
-    });
+    if (node.children.length > 0) {
+        const childContainer = document.createElement('div');
+        childContainer.className = 'children';
 
-    nodeEl.appendChild(childContainer);
+        node.children.forEach(child => {
+            childContainer.appendChild(createNode(child, depth + 1));
+        });
 
-    nodeEl.addEventListener('click', (e) => {
-        if (e.target.closest('.option') || e.target.closest('.submenu')) return;
-        if (node.children.length === 0) return;
-    
-        e.stopPropagation();
-    
-        if (openNodes.has(node.id)) {
-            openNodes.delete(node.id);
-        } else {
-            openNodes.add(node.id);
-        }
-    
-        childContainer.classList.toggle('open');
-    });
+        nodeEl.appendChild(childContainer);
+    }
 
     return nodeEl;
 }
+
+saveBtn.addEventListener('click', () => {
+    const name = inputName.value.trim();
+    if (!name) {
+        alert('Node name cannot be blank.');
+        return;
+    }
+
+    editNode(tree, editingId, name);
+
+    editingId = null;
+    inputName.value = '';
+    saveBtn.classList.add('hidden');
+    addBtn.classList.remove('hidden');
+
+    render();
+});
 
 function editNode(nodes, id, newName) {
     const target = findNode(nodes, id);
@@ -225,22 +200,20 @@ function deleteNode(nodes, id) {
     return false;
 }
 
-function addChild(nodes, parentId, name){
-    for(let node of nodes){
-        if(node.id === parentId){
+function addChild(nodes, parentId, name) {
+    for (let node of nodes) {
+        if (node.id === parentId) {
             node.children.push({
                 id: id_inc++,
                 name,
                 parent: parentId,
                 children: []
-            })
+            });
             return true;
         }
-        if(addChild(node.children, parentId, name)){
+        if (addChild(node.children, parentId, name)) {
             return true;
         }
-        
     }
     return false;
 }
-
