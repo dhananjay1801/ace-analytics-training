@@ -1,0 +1,102 @@
+body {
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 95vh;
+}
+
+.calender {
+    width: 500px;
+    height: 490px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.weekdays, .dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: 10px;
+    gap: 8px;
+}
+
+.weekdays div {
+    text-align: center;
+    font-weight: bold;
+}
+
+.day {
+    aspect-ratio: 1;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.day {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.day:hover {
+    background: #3498db;
+    color: white;
+}
+
+.select-ym{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#select-month, #select-year, #prev, #next, #today{
+    width: 100%;
+    margin: 5px;
+    outline: none;
+    background-color: antiquewhite;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px;
+    border: 1px solid black;
+}
+
+#select-month:hover, #select-year:hover, #prev:hover, #next:hover, #today:hover{
+    box-shadow: 0px 0px 4px black;
+}
+
+#select-month, #select-year{
+    color: rgb(90, 71, 178);
+    border: 1px solid rgb(90, 71, 178);
+}
+
+#prev{
+    background-color: rgb(225, 186, 0);
+    color: white;
+}
+
+#next{
+    background-color: rgb(90, 71, 178);
+    color: white;
+}
+
+#today{
+    background-color: #30aafc;
+    color: white;
+}
+
+.holiday {
+    background: #c3f3c3;
+}
+
+.today{
+    background: #30aafc;
+}
+
+.inactive{
+    opacity: 0.2;
+}
