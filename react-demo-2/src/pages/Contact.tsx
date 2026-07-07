@@ -4,7 +4,7 @@ import CountContext from '../context/CountContext'
 const Contact = () => {
     
     const context = useContext(CountContext)
-    const {count, setCount} = context;
+    const {count} = context;
 
     return (
         <div>
