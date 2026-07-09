@@ -15,6 +15,7 @@ const Hero = () => {
         </div>
 
         <div className={styles.imageDiv}>
+          <div className={styles.glow}></div>
             <img src={heroHeadphones} alt="headphones" />
         </div>
     </Box>
