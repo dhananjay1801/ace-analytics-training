@@ -13,18 +13,24 @@ const Discount = (prop: DiscountProps) => {
         <div className={styles.container}>
 
             <div>
-                <p className={styles.title}>
+                <h1 className={styles.title}>
                     Out Black Friday Discount
-                </p>
+                </h1>
                 <div className={styles.timer}>
                     <div className={styles.timerCol}>
                         <span>Day</span>
                         <span className={styles.timerDigits}>01</span>
                     </div>
+
+                    <div className={styles.seperator}></div>
+
                     <div className={styles.timerCol}>
                         <span>Hours</span>
                         <span className={styles.timerDigits}>18</span>
                     </div>
+
+                    <div className={styles.seperator}></div>
+
                     <div className={styles.timerCol}>
                         <span>Minutes</span>
                         <span className={styles.timerDigits}>55</span>

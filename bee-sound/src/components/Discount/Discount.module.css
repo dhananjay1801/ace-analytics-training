@@ -3,7 +3,7 @@
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
     padding: 100px;
 }
@@ -17,6 +17,7 @@
     border-radius: 5px;
     justify-content: space-around;
     align-items: center;
+    padding: 0 20px;
 }
 
 .timerCol {
@@ -24,19 +25,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-right: 2px solid black;
-}
-
-.timerCol:last-child {
-    border-right: none;
 }
 
 .title {
-    font-size: x-large;
+    font-size: 40px;
     font-weight: 500;
-    justify-self: flex-start;
 }
 
 .timerDigits {
     font-size: larger;
+}
+
+.seperator{
+    height: 60%;
+    border: 1px solid #C1C1C1;
+    
 }

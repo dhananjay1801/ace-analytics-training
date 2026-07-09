@@ -6,6 +6,8 @@ import type { Product } from '../../types/product'
 import { getProducts } from '../../api/getProducts'
 import { useState, useEffect } from 'react'
 import Discount from '../../components/Discount/Discount'
+import NewArrivals from '../../components/NewArrivals/NewArrivals'
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -34,6 +36,11 @@ const Home = () => {
         }))}/>
         <QuickBuy/>
         <Discount products={products.slice(4, 7)}/>
+        <NewArrivals products={products.slice(7, 11).map(product => ({
+          ...product,
+          discountPercentage: 0,
+        }))}/>
+        <Footer/>
     </div>
   )
 }

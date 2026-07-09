@@ -1,0 +1,18 @@
+import styles from './TitleLogo.module.css'
+
+const TitleLogo = () => {
+    return (
+        <div className={styles.title}>
+            <span className={styles.logo}>
+                <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.5 2.03571V16.9643M5.7 4.74999V14.25M3.1 6.78571V12.2143M13.5 2.03571V16.9643M10.9 4.74999V14.25M8.3 6.78571V12.2143" stroke="#1B234A" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+            <span className={styles.text}>
+                BeeSound
+            </span>
+        </div>
+    )
+}
+
+export default TitleLogo

@@ -1,0 +1,27 @@
+.box{
+    margin: 50px auto;
+    padding: 0 40px;
+}
+
+.items{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px auto;
+    gap: 10px;
+}
+
+.title{
+    font-size: larger;
+    font-weight: 600;
+}
+
+.seeMore{
+    color: #616161;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+}
