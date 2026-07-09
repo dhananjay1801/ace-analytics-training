@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cartContext = useContext(CartContext);
-  const { cart, setCart } = cartContext;
+  const { cart } = cartContext;
   const [ordered, setOrdered] = useState(false);
 
   function handleCheckout() {

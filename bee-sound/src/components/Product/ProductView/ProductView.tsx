@@ -17,7 +17,7 @@ interface ProductViewProps {
 const ProductView = (prop: ProductViewProps) => {
     const { product, setActiveProduct } = prop;
     const cartContext = useContext(CartContext)
-    const {cart, setCart} = cartContext;
+    const {setCart} = cartContext;
 
     function handleClick() {
         setActiveProduct(null);
