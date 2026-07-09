@@ -6,8 +6,9 @@ type AboutProps = {
     setClicks: React.Dispatch<React.SetStateAction<number>>
 }
 
-const About = ({clicks, setClicks}:AboutProps) => {
+const About = (props:AboutProps) => {
 
+    const {clicks, setClicks} = props
     const [jsonData, setJsonData] = useState<any>("");
 
     useEffect(() => {

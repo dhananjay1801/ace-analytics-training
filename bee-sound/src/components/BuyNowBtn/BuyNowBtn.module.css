@@ -1,0 +1,13 @@
+.buyBtn {
+    width: 136px;
+    height: 39px;
+    border-radius: 10px;
+    border-width: 2px;
+    padding: 10px 32px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

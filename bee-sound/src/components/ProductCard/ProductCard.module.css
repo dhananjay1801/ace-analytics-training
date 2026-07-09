@@ -1,0 +1,23 @@
+.imgBg {
+    background-color: #F2F5FF;
+    border-radius: 5px;
+}
+
+.discountBadge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.imageContainer {
+    position: relative;
+}
+
+.discountText{
+    font-size: 15px;
+    font-weight: 700;
+    fill: white;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}

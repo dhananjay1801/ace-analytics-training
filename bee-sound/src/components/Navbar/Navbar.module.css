@@ -1,0 +1,62 @@
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.logo {
+    width: 14;
+    height: 19;
+    top: 64px;
+    left: 80px;
+
+}
+
+.text {
+    font-family: Inter;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 23px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.navigation {
+    display: flex;
+    gap: 85px;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+.signInBtn {
+    width: 189;
+    height: 39;
+    opacity: 1;
+    top: 53px;
+    left: 1171px;
+    gap: 8px;
+    border-radius: 10px;
+    border: 2px solid #1B234A;
+    padding-top: 10px;
+    padding-right: 32px;
+    padding-bottom: 10px;
+    padding-left: 32px;
+
+}
+
+.navRight{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
