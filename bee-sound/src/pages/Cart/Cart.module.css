@@ -1,0 +1,39 @@
+.cartTitle{
+    font-size: 30px;
+}
+
+.back{
+    opacity: 70%;
+}
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 44vw;
+    margin: 20px auto;
+}
+
+.box{
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.checkoutBtn{
+    background-color: #AF367B;
+    padding: 16px;
+    border-radius: 10px;
+    width: 279px;
+    outline: none;
+    border: none;
+    color: #F2F5FF;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.noDec, .noDec:visited{
+    color: black;
+    text-decoration: none;
+}

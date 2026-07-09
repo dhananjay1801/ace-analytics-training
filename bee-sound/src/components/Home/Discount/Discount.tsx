@@ -1,6 +1,6 @@
 import styles from './Discount.module.css'
-import type { Product } from '../../types/product';
-import ProductCard from '../ProductCard/ProductCard';
+import type { Product } from '../../../types/product';
+import ProductCard from '../../ProductCard/ProductCard';
 
 interface DiscountProps {
     products: Product[];

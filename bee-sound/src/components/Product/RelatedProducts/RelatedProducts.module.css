@@ -1,0 +1,19 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.relatedItems {
+    display: grid;
+    grid-template-columns: repeat(8, 120px);
+    gap: 55px;
+    justify-content: center;
+    margin: 0 auto;
+}

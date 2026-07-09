@@ -1,8 +1,8 @@
 import { Container } from '@mui/material'
 import styles from './QuickBuy.module.css'
 import BuyNowBtn from '../BuyNowBtn/BuyNowBtn'
-import earbuds from '../../assets/earbuds_home.png'
-import headphones from '../../assets/headphones_home.png'
+import earbuds from '../../../assets/earbuds_home.png'
+import headphones from '../../../assets/headphones_home.png'
 
 const QuickBuy = () => {
     return (

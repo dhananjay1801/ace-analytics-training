@@ -1,12 +1,12 @@
 import Navbar from '../../components/Navbar/Navbar'
-import Hero from '../../components/Hero/Hero'
-import BestSelling from '../../components/BestSelling/BestSelling'
-import QuickBuy from '../../components/QuickBuy/QuickBuy'
+import Hero from '../../components/Home/Hero/Hero'
+import BestSelling from '../../components/Home/BestSelling/BestSelling'
+import QuickBuy from '../../components/Home/QuickBuy/QuickBuy'
 import type { Product } from '../../types/product'
 import { getProducts } from '../../api/getProducts'
 import { useState, useEffect } from 'react'
-import Discount from '../../components/Discount/Discount'
-import NewArrivals from '../../components/NewArrivals/NewArrivals'
+import Discount from '../../components/Home/Discount/Discount'
+import NewArrivals from '../../components/Home/NewArrivals/NewArrivals'
 import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <div>
-        <Navbar/>
+        <Navbar products={products}/>
         <Hero/>
         <BestSelling products={products.slice(0, 4).map(product => ({
           ...product,

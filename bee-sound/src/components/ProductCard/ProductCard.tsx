@@ -4,12 +4,13 @@ import styles from './ProductCard.module.css'
 
 interface ProductCardProps {
     product: Product;
+    size?: "default" | "small";
 }
 
 const ProductCard = (prop: ProductCardProps) => {
-    const { product } = prop;
+    const { product, size } = prop;
     return (
-        <Box>
+        <Box className={size === "small" ? styles.smallCard : ""}>
             <div className={styles.imageContainer}>
 
                 {product.discountPercentage > 0 &&

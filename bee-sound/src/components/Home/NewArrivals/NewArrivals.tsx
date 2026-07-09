@@ -1,6 +1,6 @@
 import styles from './NewArrivals.module.css'
-import ProductCard from '../ProductCard/ProductCard'
-import type { Product } from '../../types/product'
+import ProductCard from '../../ProductCard/ProductCard'
+import type { Product } from '../../../types/product'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,7 +15,7 @@ const NewArrivals = (prop: NewArrivalsProps) => {
         <div className={styles.box}>
             <div className={styles.header}>
                 <span className={styles.title}>
-                    Our Best Selling
+                    New Arrivals
                 </span>
                 <div className={styles.seeMore}>
                     <span>

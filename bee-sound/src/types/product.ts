@@ -4,6 +4,11 @@ export interface Product {
     price: number;
     discountPercentage: number | null;
     thumbnail: string;
+    brand: string;
+    sku: string;
+    category: string;
+    rating: number;
+    warrantyInformation: string;
 }
 
 export interface ProductsResponse {

@@ -1,5 +1,5 @@
-import { Container } from '@mui/material'
-import TitleLogo from '../TitleLogo/TitleLogo'
+
+import TitleLogo from '../Home/TitleLogo/TitleLogo'
 import styles from './Footer.module.css'
 import instagram from '../../assets/instagram.svg'
 import linkedin from '../../assets/linkedin.svg'

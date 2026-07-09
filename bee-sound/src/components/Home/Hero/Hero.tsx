@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import styles from './Hero.module.css'
-import heroHeadphones from "../../assets/hero_headphones.png";
+import heroHeadphones from "../../../assets/hero_headphones.png";
 import BuyNowBtn from '../BuyNowBtn/BuyNowBtn';
 
 const Hero = () => {

@@ -1,6 +1,6 @@
 import styles from './BestSelling.module.css'
-import ProductCard from '../ProductCard/ProductCard'
-import type { Product } from '../../types/product'
+import ProductCard from '../../ProductCard/ProductCard'
+import type { Product } from '../../../types/product'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 
