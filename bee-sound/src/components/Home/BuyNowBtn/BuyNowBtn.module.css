@@ -1,5 +1,6 @@
 .buyBtn {
-    width: 136px;
+    min-width: 136px;
+    max-width: 200px;
     height: 39px;
     border-radius: 10px;
     border-width: 2px;

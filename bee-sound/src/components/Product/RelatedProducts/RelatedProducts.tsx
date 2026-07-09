@@ -18,7 +18,7 @@ const RelatedProducts = (prop: RelatedProductsProps) => {
         <div className={styles.relatedItems}>
             {products.map((product) => (
                 <div key={product.id} onClick={()=>onSelect(product)}>
-                    <ProductCard product={product} size='small'/>
+                    <ProductCard showAddToCart={false} product={product} size='small'/>
                 </div>
             ))}
         </div>

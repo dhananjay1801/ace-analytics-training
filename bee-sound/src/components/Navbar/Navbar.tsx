@@ -1,9 +1,10 @@
 import type { Product } from '../../types/product'
-import { Box } from '@mui/material'
+import { Box, TextField } from '@mui/material'
 import styles from './Navbar.module.css'
 import TitleLogo from '../Home/TitleLogo/TitleLogo'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import BuyNowBtn from '../Home/BuyNowBtn/BuyNowBtn'
 
 interface NavbarProps {
     products: Product[];
@@ -13,6 +14,7 @@ const Navbar = (prop: NavbarProps) => {
     const { products } = prop;
     const [query, setQuery] = useState("");
     const [showSearch, setshowSearch] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const filteredProducts = products.filter((product) => {
         return product.title.toLowerCase().includes(query.toLowerCase())
@@ -21,6 +23,12 @@ const Navbar = (prop: NavbarProps) => {
     function handleSearch() {
         setshowSearch(true);
     }
+
+    useEffect(() => {
+        if (showSearch) {
+            inputRef.current?.focus();
+        }
+    }, [showSearch]);
 
     return (
         <>
@@ -40,34 +48,32 @@ const Navbar = (prop: NavbarProps) => {
                 <div className={styles.navRight}>
                     <div className={styles.icons}>
                         <div className={styles.search}>
-                            {showSearch ? (
-                                <>
-                                    <input type="text" className={styles.searchBox} value={query} onChange={(e) => {
-                                        setQuery(e.target.value)
-                                    }}
-                                        onBlurCapture={() => {
-                                            setTimeout(() => {
-                                                setshowSearch(false);
-                                                setQuery("");
-                                            }, 200)
-                                        }} autoFocus />
+                            <svg onClick={handleSearch} className={`${styles.searchIcon} ${showSearch ? styles.searchIconHidden : ''}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 21L16.657 16.657M16.657 16.657C17.3998 15.9141 17.9891 15.0322 18.3912 14.0615C18.7932 13.0909 19.0002 12.0506 19.0002 11C19.0002 9.94939 18.7932 8.90908 18.3912 7.93845C17.9891 6.96782 17.3998 6.08588 16.657 5.34299C15.9141 4.6001 15.0321 4.01081 14.0615 3.60877C13.0909 3.20672 12.0506 2.99979 11 2.99979C9.94936 2.99979 8.90905 3.20672 7.93842 3.60877C6.96779 4.01081 6.08585 4.6001 5.34296 5.34299C3.84263 6.84332 2.99976 8.87821 2.99976 11C2.99976 13.1218 3.84263 15.1567 5.34296 16.657C6.84329 18.1573 8.87818 19.0002 11 19.0002C13.1217 19.0002 15.1566 18.1573 16.657 16.657Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
 
-                                    {query && (
-                                        <div className={styles.searchResults}>
-                                            {filteredProducts.map(product => (
-                                                <div key={product.id} className={styles.result}
-                                                >
-                                                    <img src={product.thumbnail} alt="" />
-                                                    <span>{product.title}</span>
-                                                </div>
-                                            ))}
+                            <div className={`${styles.searchWrapper} ${showSearch ? styles.searchWrapperOpen : ''}`}>
+                                <TextField id="outlined-basic" variant="outlined" size="small" inputRef={inputRef} className={styles.searchBox} value={query} onChange={(e) => {
+                                    setQuery(e.target.value)
+                                }}
+                                    onBlurCapture={() => {
+                                        setTimeout(() => {
+                                            setshowSearch(false);
+                                            setQuery("");
+                                        }, 200)
+                                    }} />
+                            </div>
+
+                            {query && showSearch && (
+                                <div className={styles.searchResults}>
+                                    {filteredProducts.map(product => (
+                                        <div key={product.id} className={styles.result}
+                                        >
+                                            <img src={product.thumbnail} alt="" />
+                                            <span>{product.title}</span>
                                         </div>
-                                    )}
-                                </>
-                            ) : (
-                                <svg onClick={handleSearch} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M21 21L16.657 16.657M16.657 16.657C17.3998 15.9141 17.9891 15.0322 18.3912 14.0615C18.7932 13.0909 19.0002 12.0506 19.0002 11C19.0002 9.94939 18.7932 8.90908 18.3912 7.93845C17.9891 6.96782 17.3998 6.08588 16.657 5.34299C15.9141 4.6001 15.0321 4.01081 14.0615 3.60877C13.0909 3.20672 12.0506 2.99979 11 2.99979C9.94936 2.99979 8.90905 3.20672 7.93842 3.60877C6.96779 4.01081 6.08585 4.6001 5.34296 5.34299C3.84263 6.84332 2.99976 8.87821 2.99976 11C2.99976 13.1218 3.84263 15.1567 5.34296 16.657C6.84329 18.1573 8.87818 19.0002 11 19.0002C13.1217 19.0002 15.1566 18.1573 16.657 16.657Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                                    ))}
+                                </div>
                             )}
                         </div>
 
@@ -82,9 +88,7 @@ const Navbar = (prop: NavbarProps) => {
                         </Link>
                     </div>
 
-                    <div className={styles.signInBtn}>
-                        Sign in / Sign Up
-                    </div>
+                    <BuyNowBtn text='Sign in / Sign Up'/>
                 </div>
             </Box>
         </>

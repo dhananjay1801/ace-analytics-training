@@ -7,7 +7,7 @@ import Cart from './pages/Cart/Cart';
 function App() {
 
   return (
-    <div className='container'>
+    <div>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/product' element={<Product/>}/>

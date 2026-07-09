@@ -26,7 +26,7 @@ const NewArrivals = (prop: NewArrivalsProps) => {
             </div>
             <div className={styles.items}>
                 {products.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard showAddToCart={true} key={product.id} product={product} />
                 ))}
             </div>
         </div>

@@ -11,7 +11,7 @@ const Hero = () => {
             <div className={styles.caption}>
                 BeeSound is the one of the world's largest online shops that providing over 1500 headphones for its costumers from over 80 countries
             </div>
-            <BuyNowBtn/>
+            <BuyNowBtn text='Buy Now'/>
         </div>
 
         <div className={styles.imageDiv}>

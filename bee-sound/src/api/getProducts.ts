@@ -2,7 +2,7 @@ import type { ProductsResponse } from "../types/product";
 
 const BASE_URL = "https://dummyjson.com";
 
-export async function getProducts(limit = 16): Promise<ProductsResponse>{
+export async function getProducts(limit = 24): Promise<ProductsResponse>{
     const response = await fetch(`${BASE_URL}/products?limit=${limit}`);
 
     if(!response.ok){

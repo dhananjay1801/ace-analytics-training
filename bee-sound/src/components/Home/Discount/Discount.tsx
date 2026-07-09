@@ -38,7 +38,7 @@ const Discount = (prop: DiscountProps) => {
                 </div>
             </div>
             {products.map(product => (
-                <ProductCard key={product.id} product={product}/>
+                <ProductCard showAddToCart={true} key={product.id} product={product}/>
             ))}
         </div>
     )

@@ -1,14 +1,13 @@
 .box{
-    margin: 50px auto;
-    padding: 0 40px;
+    margin: 50px;
 }
 
 .items{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 10px auto;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .title{
@@ -23,5 +22,26 @@
 .header{
     display: flex;
     justify-content: space-between;
-    margin: 0 10px;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .box {
+        margin: 32px 24px;
+    }
+
+    .items {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .box {
+        margin: 24px 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+    }
 }

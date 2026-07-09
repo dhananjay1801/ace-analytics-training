@@ -4,7 +4,7 @@ import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import styles from './Cart.module.css'
 import CartItem from "../../components/Cart/CartItem/CartItem";
 import { useContext, useState } from "react";
-import { CartContext } from "../../Context/CartContext/CartContext";
+import { CartContext } from "../../context/CartContext/CartContext";
 import { Link } from "react-router-dom";
 
 
@@ -16,6 +16,8 @@ const Cart = () => {
   function handleCheckout() {
     setOrdered(true);
   }
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
 
   return (
     <Box className={styles.box}>
@@ -33,7 +35,9 @@ const Cart = () => {
       ) :
       cart.length > 0 ?
         <>
-          <CartItem /> <button className={styles.checkoutBtn} onClick={handleCheckout}>Checkout</button> 
+          <CartItem />
+          <div>Total: ${total}</div>
+          <button className={styles.checkoutBtn} onClick={handleCheckout}>Checkout</button> 
         </> : "Cart is empty!"}
 
     </Box>

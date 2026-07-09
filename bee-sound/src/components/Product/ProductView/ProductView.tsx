@@ -6,7 +6,7 @@ import headphone3 from '../../../assets/headphones_3.png'
 import headphone4 from '../../../assets/headphones_4.png'
 import type { Product } from '../../../types/product'
 import { useContext } from 'react'
-import { CartContext } from '../../../Context/CartContext/CartContext'
+import { CartContext } from '../../../context/CartContext/CartContext'
 
 
 interface ProductViewProps {
@@ -29,16 +29,7 @@ const ProductView = (prop: ProductViewProps) => {
 
     return (
         <Box className={styles.box}>
-            <div className={styles.productImages}>
-                <img className={styles.largeThumbnail} src={product.thumbnail} />
-
-                <div className={styles.smallThumbnails}>
-                    <img className={styles.smallThumbnail} src={headphone1} />
-                    <img className={styles.smallThumbnail} src={headphone2} />
-                    <img className={styles.smallThumbnail} src={headphone3} />
-                    <img className={styles.smallThumbnail} src={headphone4} />
-                </div>
-            </div>
+            <img className={styles.largeThumbnail} src={product.thumbnail} />
 
             <div className={styles.itemInfo}>
                 <h2 className={styles.titlePrice}>

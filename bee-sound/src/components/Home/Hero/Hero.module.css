@@ -1,14 +1,14 @@
 .container {
     background-color: #AF367B;
-    width: 1280px;
     height: 430px;
     border-radius: 5px 5px 150px 5px;
-    margin: 0 auto;
+    margin: 50px;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px;
+    padding: 100px;
+    box-sizing: border-box;
 }
 
 .left{
@@ -41,4 +41,62 @@
     border-radius: 50%;
     filter: blur(70px);
     z-index: 1;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 72px 56px;
+    }
+
+    .left {
+        width: 100%;
+        max-width: 640px;
+    }
+
+    .heroTitle {
+        font-size: 46px;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+        padding: 48px 32px;
+        border-radius: 5px 5px 100px 5px;
+    }
+
+    .left {
+        align-items: center;
+    }
+
+    .heroTitle {
+        font-size: 40px;
+    }
+
+    .imageDiv {
+        margin: 32px 0 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 24px 16px;
+        padding: 32px 20px;
+        border-radius: 5px 5px 64px 5px;
+    }
+
+    .heroTitle {
+        font-size: 30px;
+    }
+
+    .imageDiv img {
+        width: min(220px, 60vw);
+    }
+
+    .glow {
+        width: 200px;
+        height: 200px;
+    }
 }

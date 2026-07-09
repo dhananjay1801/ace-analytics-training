@@ -25,6 +25,15 @@ const Product = () => {
     fetchProducts()
   },[]);
 
+  useEffect(() => {
+    if (activeProduct) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [activeProduct]);
+
   return (
     <>
       <Navbar products={related}/>

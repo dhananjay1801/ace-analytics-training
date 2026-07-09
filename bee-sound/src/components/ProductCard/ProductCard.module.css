@@ -16,6 +16,7 @@
 .imageContainer {
     position: relative;
     cursor: pointer;
+    width: 100%;
 }
 
 .discountText {
@@ -26,18 +27,47 @@
     dominant-baseline: middle;
 }
 .smallCard {
-    width: 170px;
+    width: 180px;
+    max-width: 100%;
 }
 
 .smallCard h3 {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 1.3;
-    margin: 6px 0 4px;
-    min-height: calc(1.3em * 2);
+    margin: 8px 0 4px;
 }
 
 .smallCard p {
     margin: 0;
-    font-size: 12px;
+    font-size: 14px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    max-width: 100%;
+}
+
+.lower{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartIcon{
+    background-color: rgba(0, 0, 0, 0.103);
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: min(270px, 100%);
+    }
+
+    .smallCard {
+        width: min(180px, 100%);
+    }
 }

@@ -1,54 +1,71 @@
-import { useContext, useState } from "react"
-import { CartContext } from "../../../Context/CartContext/CartContext"
+import { useContext } from "react"
+import { CartContext } from "../../../context/CartContext/CartContext"
 import styles from './CartItem.module.css'
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from '@mui/material/Button';
+import type { Product } from "../../../types/product";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const CartItem = () => {
     const cartContext = useContext(CartContext);
-    const {cart, setCart} = cartContext;
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    function handleLeft(){
-        if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-        }
-    }
-
-    function handleRight(){
-        if (currentIndex < cart.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-        }
-    }
-
-    function handleRemove() {
-        setCart(prev => prev.filter((_, index) => index !== currentIndex));
-        if (currentIndex > 0){
-            setCurrentIndex(currentIndex - 1);
-        }
-    }
+    const { cart, setCart } = cartContext;
 
     if (cart.length === 0) {
         return <p>Cart is empty.</p>;
     }
 
-  return (
-    <div className={styles.container}>
-        <FontAwesomeIcon className={styles.cursor} onClick={handleLeft} icon={faAngleLeft} />
-        <img className={styles.imgBg} src={cart[currentIndex].thumbnail} alt="" />
+    const groupedItems = cart.reduce<{ product: Product; quantity: number }[]>((acc, item) => {
+        const existing = acc.find((entry) => entry.product.id === item.id);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            acc.push({ product: item, quantity: 1 });
+        }
+        return acc;
+    }, []);
 
-        <div className={styles.productInfo}>
-            <h2>{cart[currentIndex].title}</h2>
-            <h3>$ {cart[currentIndex].price}</h3>
-            <span>Delivery Time: 
-                <span className={styles.lightGray}> 2 working days</span>
-            </span>
-            <button onClick={handleRemove} className={styles.removeBtn}>Remove from cart</button>
+    function handleSub(productId: number) {
+        setCart(prev => {
+            const index = prev.findIndex(item => item.id === productId);
+            if (index === -1) return prev;
+            const updated = [...prev];
+            updated.splice(index, 1);
+            return updated;
+        });
+    }
+
+    function handleAdd(product: Product) {
+        setCart(prev => [...prev, product]);
+    }
+
+    return (
+        <div className={styles.container}>
+            {groupedItems.map(({ product, quantity }) => (
+                <div key={product.id} className={styles.item}>
+                    <img className={styles.imgBg} src={product.thumbnail} alt="" />
+
+                    <div className={styles.productInfo}>
+                        <h2>{product.title}</h2>
+                        <h3 className={styles.priceQty}>
+                            <div>
+                                $ {(product.price * quantity).toFixed(2)}
+                            </div>
+                            <div className={styles.controlQty}>
+                                <Button onClick={() => handleSub(product.id)} variant="outlined" className={styles.qtyBtn}>
+                                    <RemoveIcon/>
+                                </Button>
+                                <span className={styles.quantity}>{quantity}</span>
+                                <Button onClick={() => handleAdd(product)} variant="outlined" className={styles.qtyBtn}>
+                                    <AddIcon/>
+                                </Button>
+                            </div>
+                        </h3>
+
+                    </div>
+                </div>
+            ))}
         </div>
-        <FontAwesomeIcon className={styles.cursor} onClick={handleRight} icon={faAngleRight} />
-    </div>
-  )
+    )
 }
 
 export default CartItem

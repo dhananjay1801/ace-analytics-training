@@ -30,13 +30,13 @@ const Home = () => {
     <div>
         <Navbar products={products}/>
         <Hero/>
-        <BestSelling products={products.slice(0, 4).map(product => ({
+        <BestSelling products={products.slice(0, 6).map(product => ({
           ...product,
           discountPercentage: 0,
         }))}/>
         <QuickBuy/>
-        <Discount products={products.slice(4, 7)}/>
-        <NewArrivals products={products.slice(7, 11).map(product => ({
+        <Discount products={products.slice(6, 11)}/>
+        <NewArrivals products={products.slice(11, 17).map(product => ({
           ...product,
           discountPercentage: 0,
         }))}/>
