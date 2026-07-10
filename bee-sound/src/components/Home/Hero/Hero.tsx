@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import styles from './Hero.module.css'
 import heroHeadphones from "../../../assets/hero_headphones.png";
-import BuyNowBtn from '../BuyNowBtn/BuyNowBtn';
+import Btn from '../../Btn/Btn';
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
             <div className={styles.caption}>
                 BeeSound is the one of the world's largest online shops that providing over 1500 headphones for its costumers from over 80 countries
             </div>
-            <BuyNowBtn text='Buy Now'/>
+            <Btn text='Buy Now'/>
         </div>
 
         <div className={styles.imageDiv}>

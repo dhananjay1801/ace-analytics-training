@@ -1,14 +1,12 @@
 import { useContext } from "react"
-import { CartContext } from "../../../context/CartContext/CartContext"
+import { CartContext } from "../../../CustomContext/CartContext/CartContext"
 import styles from './CartItem.module.css'
-import Button from '@mui/material/Button';
 import type { Product } from "../../../types/product";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import QuantityControlBtns from "../../QuantityControlBtns/QuantityControlBtns";
 
 const CartItem = () => {
     const cartContext = useContext(CartContext);
-    const { cart, setCart } = cartContext;
+    const { cart } = cartContext;
 
     if (cart.length === 0) {
         return <p>Cart is empty.</p>;
@@ -24,19 +22,6 @@ const CartItem = () => {
         return acc;
     }, []);
 
-    function handleSub(productId: number) {
-        setCart(prev => {
-            const index = prev.findIndex(item => item.id === productId);
-            if (index === -1) return prev;
-            const updated = [...prev];
-            updated.splice(index, 1);
-            return updated;
-        });
-    }
-
-    function handleAdd(product: Product) {
-        setCart(prev => [...prev, product]);
-    }
 
     return (
         <div className={styles.container}>
@@ -50,15 +35,8 @@ const CartItem = () => {
                             <div>
                                 $ {(product.price * quantity).toFixed(2)}
                             </div>
-                            <div className={styles.controlQty}>
-                                <Button onClick={() => handleSub(product.id)} sx={{color: "red", borderColor: "rgba(255, 0, 0, 0.45)", ":hover":{color: "red", borderColor: "red", backgroundColor: 'rgba(255, 0, 0, 0.04)'}}} variant="outlined" className={styles.qtyBtn}>
-                                    <RemoveIcon/>
-                                </Button>
-                                <span className={styles.quantity}>{quantity}</span>
-                                <Button onClick={() => handleAdd(product)} variant="outlined" className={styles.qtyBtn}>
-                                    <AddIcon/>
-                                </Button>
-                            </div>
+                            
+                            <QuantityControlBtns product={product} quantity={quantity} />
                         </h3>
 
                     </div>

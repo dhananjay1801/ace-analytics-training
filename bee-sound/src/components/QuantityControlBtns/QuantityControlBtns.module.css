@@ -1,0 +1,26 @@
+.controlQty {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.qtyBtn {
+    min-width: 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+}
+
+.quantity {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+@media (max-width: 500px) {
+    .controlQty {
+        gap: 10px;
+    }
+}

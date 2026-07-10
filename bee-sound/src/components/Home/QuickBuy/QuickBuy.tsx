@@ -1,5 +1,5 @@
 import styles from './QuickBuy.module.css'
-import BuyNowBtn from '../BuyNowBtn/BuyNowBtn'
+import Btn from '../../Btn/Btn'
 import earbuds from '../../../assets/earbuds_home.png'
 import headphones from '../../../assets/headphones_home.png'
 
@@ -11,7 +11,7 @@ const QuickBuy = () => {
                     <p className={styles.leftTitle}>
                         High-quality Bluetooth Earbuds
                     </p>
-                    <BuyNowBtn text='Buy Now'/>
+                    <Btn text='Buy Now'/>
                 </div>
 
                 <img className={styles.earbuds} src={earbuds} alt="" />
@@ -23,7 +23,7 @@ const QuickBuy = () => {
                     <p className={styles.leftTitle}>
                         Headphones for all range of price
                     </p>
-                    <BuyNowBtn text='Buy Now'/>
+                    <Btn text='Buy Now'/>
                 </div>
 
                 <img className={styles.headphones} src={headphones} alt="" />

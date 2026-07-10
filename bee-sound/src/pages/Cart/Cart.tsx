@@ -4,7 +4,7 @@ import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import styles from './Cart.module.css'
 import CartItem from "../../components/Cart/CartItem/CartItem";
 import { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext/CartContext";
+import { CartContext } from "../../CustomContext/CartContext/CartContext";
 import { Link } from "react-router-dom";
 
 

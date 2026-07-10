@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './BuyNowBtn.module.css'
+import styles from './Btn.module.css'
 
 interface BtnProp{
     text: string;
 }
 
-const BuyNowBtn = (prop: BtnProp) => {
+const Btn = (prop: BtnProp) => {
     const text = prop.text;
 
     return (
@@ -15,4 +15,4 @@ const BuyNowBtn = (prop: BtnProp) => {
     )
 }
 
-export default BuyNowBtn
+export default Btn

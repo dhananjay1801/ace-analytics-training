@@ -4,7 +4,7 @@ import styles from './Navbar.module.css'
 import TitleLogo from '../Home/TitleLogo/TitleLogo'
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
-import BuyNowBtn from '../Home/BuyNowBtn/BuyNowBtn'
+import Btn from '../Btn/Btn'
 
 interface NavbarProps {
     products: Product[];
@@ -88,7 +88,7 @@ const Navbar = (prop: NavbarProps) => {
                         </Link>
                     </div>
 
-                    <BuyNowBtn text='Sign in / Sign Up'/>
+                    <Btn text='Sign in / Sign Up'/>
                 </div>
             </Box>
         </>

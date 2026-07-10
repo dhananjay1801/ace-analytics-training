@@ -1,7 +1,8 @@
 .box {
     display: flex;
     flex-direction: column;
-    margin: 50px;
+    margin: 50px auto;
+    width: min(100%, calc(100vw - 32px));
 }
 
 .title {
@@ -12,7 +13,7 @@
 
 .relatedItems {
     display: grid;
-    grid-template-columns: repeat(9, 180px);
+    grid-template-columns: repeat(9, minmax(0, 180px));
     gap: 20px;
     justify-content: center;
 }
@@ -55,6 +56,6 @@
     }
 
     .relatedItems {
-        grid-template-columns: repeat(1, 180px);
+        grid-template-columns: minmax(0, 1fr);
     }
 }

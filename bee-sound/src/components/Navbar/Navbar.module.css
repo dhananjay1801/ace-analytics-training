@@ -9,7 +9,7 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 50px;
+    padding: 50px 100px;
     align-items: center;
     gap: 24px;
     flex-wrap: wrap;
@@ -21,7 +21,6 @@
     align-items: center;
     gap: 20px;
 }
-
 
 .navRight{
     display: flex;
@@ -41,7 +40,7 @@
 
 .searchContainer {
     position: relative;
-    width: 260px;
+    width: min(260px, 100%);
 }
 
 .searchBox {
@@ -52,7 +51,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    width: 260px;
+    width: min(260px, 100%);
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.336);
@@ -110,7 +109,7 @@
 }
 
 .searchWrapperOpen {
-    width: 260px;
+    width: min(260px, calc(100vw - 48px));
     opacity: 1;
 }
 
@@ -161,6 +160,10 @@
     .icons {
         width: 100%;
         flex-wrap: wrap;
+    }
+
+    .search {
+        width: 100%;
     }
 
     .searchContainer,
