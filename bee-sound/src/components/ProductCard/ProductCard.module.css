@@ -31,6 +31,11 @@
     max-width: 100%;
 }
 
+h3{
+    margin: 5px 0;
+    padding: 0;
+}
+
 .smallCard h3 {
     font-size: 14px;
     font-weight: 600;
@@ -48,6 +53,7 @@
     flex-direction: column;
     width: 270px;
     max-width: 100%;
+    margin-bottom: 20px;
 }
 
 .lower{
@@ -72,5 +78,16 @@
 
     .smallCard {
         width: min(180px, 100%);
+    }
+    .imageContainer svg{
+        scale: 100%;
+    }
+    
+}
+
+
+@media (max-width: 1200px) {
+    .imageContainer svg{
+        scale: 50%;
     }
 }

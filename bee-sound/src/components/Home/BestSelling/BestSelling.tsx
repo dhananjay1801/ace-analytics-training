@@ -1,8 +1,7 @@
 import styles from './BestSelling.module.css'
 import ProductCard from '../../ProductCard/ProductCard'
 import type { Product } from '../../../types/product'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 interface BestSellingProps {
     products: Product[];
@@ -21,7 +20,7 @@ const BestSelling = (prop: BestSellingProps) => {
                     <span>
                         See More
                     </span>
-                    <FontAwesomeIcon icon={faArrowRightLong} />
+                    <KeyboardArrowRightIcon/>
                 </div>
             </div>
             <div className={styles.items}>

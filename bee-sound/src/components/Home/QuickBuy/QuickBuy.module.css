@@ -54,6 +54,9 @@
     .box {
         padding: 56px 40px;
     }
+    .left{
+        align-items: center;
+    }
 }
 
 @media (max-width: 900px) {
@@ -65,6 +68,10 @@
     .box {
         justify-content: center;
         padding: 40px 32px;
+    }
+
+    .left{
+        align-items: center;
     }
 }
 

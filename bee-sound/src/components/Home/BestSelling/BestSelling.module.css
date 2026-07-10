@@ -4,18 +4,21 @@
 
 .items{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: 30px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .title{
-    font-size: larger;
+    font-size: 27px;
     font-weight: 600;
 }
 
 .seeMore{
     color: #616161;
+    display: flex;
+    align-items: center;
 }
 
 .header{
