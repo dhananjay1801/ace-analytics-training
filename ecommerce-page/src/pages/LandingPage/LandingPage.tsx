@@ -1,3 +1,4 @@
+import DesktopClients from "../../components/LandingPage/DesktopClients/DesktopClients"
 import Header from "../../components/LandingPage/Header/Header"
 import Hero from "../../components/LandingPage/Hero/Hero"
 import Navbar from "../../components/LandingPage/Navbar/Navbar"
@@ -9,6 +10,7 @@ const LandingPage = () => {
         <Header/>
         <Navbar/>
         <Hero/>
+        <DesktopClients/>
     </div>
   )
 }

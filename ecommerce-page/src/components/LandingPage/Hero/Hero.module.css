@@ -1,26 +1,23 @@
-
-
-.subtitle{
+.subtitle {
     color: #737373;
     font-weight: 600;
 }
 
-.year{
+.year {
     color: #2A7CC7;
     font-weight: 700;
 }
 
-.title{
+.title {
     font-size: 58px;
     font-weight: 700;
 }
 
 .container {
-    height: 600px;
+    max-height: 600px;
+    height: 70vh;
     border-radius: 20px;
-
     background: url("../../../assets/container-fluid.png") center/cover no-repeat;
-
     display: flex;
     align-items: center;
 }
@@ -36,21 +33,21 @@
     padding: 0 60px;
 }
 
-.femaleImg{
+.femaleImg {
     position: absolute;
     top: 9.7%;
     right: 10%;
     z-index: 10;
 }
 
-.white_1{
+.white_1 {
     position: absolute;
     right: 11%;
     top: 41%;
     z-index: 12;
 }
 
-.white_2{
+.white_2 {
     position: absolute;
     right: 26%;
     top: 41%;
@@ -58,7 +55,7 @@
     scale: 16;
 }
 
-.white_3{
+.white_3 {
     position: absolute;
     right: 45%;
     top: 21.7%;
@@ -66,16 +63,94 @@
     scale: 3;
 }
 
-.purple_1{
+.purple_1 {
     top: 28%;
     right: 11%;
     position: absolute;
     z-index: 12;
 }
 
-.purple_2{
+.purple_2 {
     bottom: 39%;
     right: 41%;
     position: absolute;
     z-index: 12;
+}
+
+@media (max-width: 1100px) {
+    .container {
+        max-height: 800px;
+    }
+
+    .white_2 {
+        right: 40%;
+        top: 90%;
+        scale: 10;
+    }
+
+    .femaleImg {
+        top: 61%;
+        right: 6%;
+        scale: 60%;
+    }
+
+    .heroWrapper {
+        padding: 0 30px;
+    }
+
+    .content {
+        margin: 0 60px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .purple_1 {
+        top: 80%;
+        right: 20%;
+    }
+    
+    .purple_2 {
+        bottom: 5%;
+        right: 60%;
+    }
+
+    .white_1 {
+        top: 90%;
+        right: 15%;
+    }
+
+    .white_3 {
+        right: 60%;
+        top: 85%;
+        scale: 3;
+    }
+}
+
+
+@media (max-width: 667px) {
+    .femaleImg {
+        right: -20%;
+        top: 64%;
+        scale: 50%;
+    }
+
+    .white_2{
+        display: none;
+    }
+
+    .white_3{
+        display: none;
+    }
+
+    .purple_1 {
+        top: 87%;
+        right: 20%;
+    }
+    
+    .purple_2 {
+        bottom: 5%;
+        right: 70%;
+    }
 }

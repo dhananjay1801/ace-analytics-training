@@ -31,3 +31,16 @@
     align-items: center;
     gap: 5px;
 }
+
+@media (max-width : 1100px) {
+    .header{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 667px){
+    .header{
+        font-size: 15px;
+    }
+}
