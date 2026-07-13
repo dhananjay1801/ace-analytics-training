@@ -1,0 +1,33 @@
+.header{
+    background-color: #252B42;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 35px;
+    font-size: 20px;
+}
+
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.svgIcons{
+    filter: invert(1);
+    font-size: 16px;
+}
+
+.leftIcons{
+    display: flex;
+    gap: 20px;
+}
+
+.leftIcons h6{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

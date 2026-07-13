@@ -1,0 +1,46 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 35px;
+}
+
+.left{
+    display: flex;
+    gap: 200px;
+}
+
+.navigationText{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.navigationText span{
+    font-weight: 700;
+    font-size: 14px;
+    color: #737373;
+}
+
+.navigationText :nth-child(2){
+    color: #252B42;
+    font-weight: 500;
+}
+
+.right{
+    font-weight: 700;
+    color: #23A6F0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.login{
+    display: flex;
+    gap: 10px;
+}
+
+.login img{
+    height: 15px;
+}
