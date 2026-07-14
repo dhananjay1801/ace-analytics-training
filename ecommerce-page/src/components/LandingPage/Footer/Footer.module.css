@@ -49,6 +49,12 @@
     border-radius: 5px 0 0 5px;
     border: 1px solid #E6E6E6;
     background-color: #F9F9F9;
+    outline: none;
+}
+
+.links > div input::placeholder{
+    font-size: 14px;
+    font-weight: 700;
 }
 
 
@@ -87,5 +93,19 @@
 
     .links > div h5{ 
         margin-top: 20px;
+    }
+
+    
+}
+
+@media (max-width: 468px) {
+    .links > div input{
+        width: 130px;
+        padding: 10px;
+    }
+
+    #subscribeBtn{
+        width: 80px;
+        padding: 10px;
     }
 }
