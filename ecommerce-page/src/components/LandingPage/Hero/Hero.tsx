@@ -14,7 +14,8 @@ const Hero = () => {
                     <span className={styles.subtitle}>We know how large objects will act, but things on a scale.</span>
 
                     <ShopNowBtn />
-
+                </div>
+                
                     <img className={styles.femaleImg} src={femaleImg} alt="" />
 
                     <img src={whiteCircle} className={styles.white_1} />
@@ -23,7 +24,6 @@ const Hero = () => {
 
                     <img src={purpleCircle} className={styles.purple_1} />
                     <img src={purpleCircle} className={styles.purple_2} />
-                </div>
             </div>
         </div>
     )

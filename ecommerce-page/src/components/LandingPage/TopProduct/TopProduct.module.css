@@ -1,0 +1,59 @@
+.container {
+    padding: 0 60px;
+    margin: 50px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.right {
+    display: grid;
+    gap: 20px;
+    height: 520px;
+}
+
+.right img {
+    width: 540px;
+    height: 50%;
+    object-fit: cover;
+    height: 260px;
+}
+
+.left{
+    width: 540px;
+    position: relative;
+}
+
+.exploreBtn{
+    position: absolute;
+    bottom: 9%;
+    left: 11%;
+    z-index: 2;
+}
+
+.transparentBg, .transparentBgshort{
+    position: absolute;
+    background-color: #2D8BC0BF;
+    width: 420px;
+    height: 238px;
+    bottom: 1%;
+    left: 0;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 70px 60px;
+    padding-right: 150px;
+}
+
+.card{
+    position: relative;
+}
+
+.transparentBgshort{
+    height: 140px;
+    padding: 20px 60px;
+    font-size: 20;
+    font-weight: 400;
+    bottom: 1.5%;
+}

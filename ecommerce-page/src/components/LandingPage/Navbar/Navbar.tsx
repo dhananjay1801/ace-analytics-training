@@ -4,14 +4,25 @@ import profile from '../../../assets/username_signup.svg'
 import searchIcon from '../../../assets/search.svg'
 import cartIcon from '../../../assets/cart.svg'
 import heartIcon from '../../../assets/cart.svg'
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from 'react'
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const handleMenu = () => {
+    setMenuOpen(prev => !prev);
+  }
+
   return (
     <div className={styles.nav}>
       <div className={styles.left}>
-        <img src={logo} alt="" />
+        <div className={styles.hamburgerLogo}>
+          <img src={logo} alt="" />
+          <MenuIcon id={styles.hamburger} onClick={handleMenu} />
+        </div>
 
-        <div className={styles.navigationText}>
+        <div className={`${styles.navigationText} ${menuOpen ? styles.open : styles.closed}`}>
           <span>Home</span>
           <span>Shop</span>
           <span>About</span>
@@ -19,6 +30,7 @@ const Navbar = () => {
           <span>Contact</span>
           <span>Pages</span>
         </div>
+
       </div>
 
       <div className={styles.right}>

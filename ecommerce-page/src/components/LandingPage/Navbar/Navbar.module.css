@@ -14,6 +14,7 @@
     display: flex;
     gap: 15px;
     align-items: center;
+    transition: all .3s ease;
 }
 
 .navigationText span{
@@ -45,15 +46,46 @@
     height: 15px;
 }
 
+.hamburgerLogo{
+    display: flex;
+    justify-content: space-between;
+}
+
+#hamburger{
+    display: none;
+}
+
 @media (max-width: 1100px) {
     .nav{
         flex-direction: column;
     }
     .navigationText{
         flex-direction: column;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+
+        transition: max-height .35s ease, opacity .35s ease;
     }
+
+    .open{
+        max-height: 300px;
+        opacity: 1;
+    }
+
+    .closed{
+        max-height: 0;
+        opacity: 0;
+    }
+    
     .left{
         gap: 20px;
         flex-direction: column;
+        width: 100%;
     }
+
+    #hamburger{
+        display: block;
+    }
+    
 }
