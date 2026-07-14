@@ -1,0 +1,95 @@
+.title h6 {
+    color: #23A6F0;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.title h3 {
+    color: #252B42;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 100px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    margin: 50px;
+    flex-wrap: wrap;
+}
+
+.content img {
+    height: 444px;
+    width: 201px;
+    object-fit: cover;
+}
+
+.innerDiv {
+    display: flex;
+    height: 512px;
+    width: 444px;
+}
+
+.innerRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 25px 35px 25px;
+    height: 444px;
+}
+
+.season {
+    font-size: 14px;
+    font-weight: 700;
+    color: #23A6F0;
+}
+
+.type {
+    font-weight: 700;
+    font-size: 16px;
+    color: #252B42;
+}
+
+.sales {
+    font-size: 14px;
+    color: #737373;
+    font-weight: 400;
+}
+
+.price {
+    color: #23856D;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.innerRight span {
+    font-weight: 700;
+}
+
+.innerRight img {
+    width: 83px;
+    height: 16px;
+}
+
+@media (max-width: 800px) {
+    .content {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .innerRight {
+        gap: 10px;
+    }
+
+    .innerDiv{
+        height: auto;
+        width: auto;
+    }
+}

@@ -1,0 +1,91 @@
+.footerHead{
+    height: 140px;
+    background-color: #FAFAFA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 190px;
+}
+
+.footerHead img{
+    height: 32px;
+}
+
+
+.links{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 50px 190px;
+}
+
+.links ul li{
+    list-style-type: none;
+    color: #737373;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.links ul{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.links > div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.links > div h5{
+    font-size: 16px;   
+    font-weight: 700;
+    color: #252B42;
+}
+
+.links > div input{
+    padding: 20px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #E6E6E6;
+    background-color: #F9F9F9;
+}
+
+
+#subscribeBtn{
+    color: white;
+    background-color: #23A6F0;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    padding: 20px;
+}
+
+.rights{
+    height: 80px;
+    background-color: #FAFAFA;
+    color: #737373;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1200px) {
+    .links{
+        padding: 50px 80px;
+        flex-wrap: wrap;
+    }
+
+    .footerHead{
+        padding: 0 80px;
+    }
+
+    .footerHead img{
+        height: 20px;
+    }
+
+    .links > div h5{ 
+        margin-top: 20px;
+    }
+}
