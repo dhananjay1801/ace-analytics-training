@@ -75,11 +75,26 @@
     .container {
         padding: 0 20px;
     }
+    .right img {
+        height: auto;
+    }
+
+    .transparentBg, .transparentBgshort {
+        padding: 20px 60px;
+        padding-right: 20px;
+        font-size: 18px;
+        height: 160px;
+    }
+
+    .transparentBgshort{
+        bottom: 0.7%;
+        height: 160px;
+    }
 }
 
 @media (max-width: 768px) {
     .exploreBtn {
-        bottom: 15%;
+        bottom: 8%;
         left: 5%;
     }
     
@@ -87,10 +102,6 @@
         padding: 20px;
         padding-right: 20px;
         font-size: 18px;
-    }
-    
-    .transparentBg {
-        height: auto;
-        min-height: 150px;
+        height: 160px;
     }
 }

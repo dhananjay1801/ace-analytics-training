@@ -71,6 +71,11 @@ const Bestseller = () => {
                     <h3>Hack Growth</h3>
                     <div>Overcame any hurdle or any other problem.</div>
                 </div>
+                <div className={styles.service}>
+                    <img src={bookreader}/>
+                    <h3>Easy Wins</h3>
+                    <div>Get your best looking smile now!</div>
+                </div>
             </div>
         </div>
     )

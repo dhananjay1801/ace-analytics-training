@@ -1,0 +1,102 @@
+
+.innerDiv {
+    display: flex;
+}
+
+.innerDiv > img{
+    height: 444px;
+    width: 201px;
+}
+
+.innerRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 25px 35px 25px;
+    width: 240px;
+}
+
+.season{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.season > span{
+    font-size: 14px;
+    font-weight: 700;
+    color: #23A6F0;
+}
+
+.type {
+    font-weight: 700;
+    font-size: 16px;
+    color: #252B42;
+}
+
+.sales {
+    font-size: 14px;
+    color: #737373;
+    font-weight: 400;
+}
+
+.price {
+    color: #23856D;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.innerRight span {
+    font-weight: 700;
+}
+
+.innerRight img {
+    width: 83px;
+    height: 16px;
+}
+
+.rating{
+    display: flex;
+    background-color: #252B42;
+    padding: 5px;
+    color: white;
+    gap: 5px;
+    font-size: 12px;
+    border-radius: 20px;
+}
+
+.rating > img{
+    height: 15px;
+    width: 15px;
+}
+
+.rating span{
+    font-weight: 400;
+}
+
+@media (max-width: 800px) {
+    
+    .innerDiv{
+        height: auto;
+        width: auto;
+    }
+
+    .innerDiv > img{
+        height: 300px;
+        width: 130px;
+    }
+
+    .innerRight {
+        padding: 10px;
+        height: 300px;
+        width: 200px;
+    }
+
+    .season > span, .type, .sales{
+        font-size: 12px;
+    }
+
+    .price{
+        font-size: 14px;
+    }
+}

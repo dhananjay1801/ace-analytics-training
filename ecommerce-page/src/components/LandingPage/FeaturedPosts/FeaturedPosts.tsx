@@ -1,8 +1,7 @@
 import styles from './FeaturedPosts.module.css'
 import hoodie from '../../../assets/hoodie.png'
 import sweatshirt from '../../../assets/sweatshirt.png'
-import LearnMoreBtn from '../LearnMoreBtn/LearnMoreBtn'
-import productColor from '../../../assets/product-colors.png'
+import DetailedProductCard from '../DetailedProductCard/DetailedProductCard'
 
 const FeaturedPosts = () => {
     return (
@@ -14,49 +13,11 @@ const FeaturedPosts = () => {
 
             <div className={styles.content}>
 
-                <div className={styles.innerDiv}>
-                    <img src={hoodie} alt="" />
+                <DetailedProductCard clothType={"Hoodie"} desc={"Discover the perfect hoodie for your style! With just a click, explore our cozy collection that fits seamlessly into your everyday life."} sales={10.1} price={6.48} image={hoodie} rating={3.9}/>
 
-                    <div className={styles.innerRight}>
-                        <div className={styles.season}>Winter Cloth</div>
-                        <h5 className={styles.type}>Hoodie</h5>
-                        <div className={styles.sales}>Discover the perfect hoodie for your style! With just a click, explore our cozy collection that fits seamlessly into your everyday life.</div>
-                        <span className={styles.sales}>10.1k Sales</span>
-                        <h5 className={styles.price}>$6.48</h5>
-                        <img className={styles.productColor} src={productColor} />
-                        <LearnMoreBtn />
-                    </div>
-                </div>
+                <DetailedProductCard clothType={"Sweatshirt"} desc={"Embrace comfort and style with our ergonomic sweatshirt, designed to fit your work lifestyle perfectly. Just a click away from your new favorite outfit!"} sales={8.2} price={8.48} image={sweatshirt} rating={4.2}/>
 
-
-                <div className={styles.innerDiv}>
-                    <img src={sweatshirt} alt="" />
-
-                    <div className={styles.innerRight}>
-                        <div className={styles.season}>Winter Cloth</div>
-                        <h5 className={styles.type}>Sweatshirt</h5>
-                        <div className={styles.sales}>Embrace comfort and style with our ergonomic sweatshirt, designed to fit your work lifestyle perfectly. Just a click away from your new favorite outfit!</div>
-                        <span className={styles.sales}>8.2k Sales</span>
-                        <h5 className={styles.price}>$8.48</h5>
-                        <img id={styles.productColor} src={productColor} />
-                        <LearnMoreBtn />
-                    </div>
-                </div>
-
-                <div className={styles.innerDiv}>
-                    <img src={hoodie} alt="" />
-
-                    <div className={styles.innerRight}>
-                        <div className={styles.season}>Winter Cloth</div>
-                        <h5 className={styles.type}>Hoodie</h5>
-                        <div className={styles.sales}>Discover the perfect hoodie for your style! With just a click, explore our cozy collection that fits seamlessly into your everyday life.</div>
-                        <span className={styles.sales}>10.1k Sales</span>
-                        <h5 className={styles.price}>$6.48</h5>
-                        <img className={styles.productColor} src={productColor} />
-                        <LearnMoreBtn />
-                    </div>
-                </div>
-
+                <DetailedProductCard clothType={"Hoodie"} desc={"Discover the perfect hoodie for your style! With just a click, explore our cozy collection that fits seamlessly into your everyday life."} sales={10.1} price={6.48} image={hoodie} rating={4}/>
 
             </div>
         </div>
