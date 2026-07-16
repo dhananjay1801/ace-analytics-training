@@ -18,64 +18,6 @@
     object-position: center;
 }
 
-.points{
-    background-color: #E5661E0D;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    gap: 50px;
-    text-align: center;
-}
-
-.points div{
-    display: flex;
-    flex-direction: column;
-}
-
-.subtext{
-    font-size: 16px;   
-    color: #062126B2;
-}
-
-.quantity{
-    font-size: 24px;
-    font-weight: 600;
-    color: #CF7D4E;
-}
-
-.info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 20px;
-    padding-left: 0;
-    width: 43%;
-}
-.name{
-    font-weight: 600;
-    font-size: 24px;
-    color: #062126;
-}
-
-.position{
-    font-size: 16px;
-    color: #CF7D4E;
-}
-
-.desc, .avail{
-    color: #062126B2;
-    font-weight: 400;
-}
-
-.avail{
-    font-weight: 600;
-}
-
-.availContent{
-    color: #24BEE0;
-}
 
 @media (max-width: 1200px) {
     .card {
@@ -89,17 +31,6 @@
         flex-shrink: 0;
     }
 
-    .points {
-        gap: 30px;
-        padding: 16px;
-        flex-shrink: 0;
-    }
-
-    .info {
-        width: auto;
-        flex: 1;
-        min-width: 0;
-    }
 }
 
 @media (max-width: 992px) {
@@ -115,17 +46,6 @@
         height: 260px;
     }
 
-    .points {
-        flex-direction: row;
-        gap: 24px;
-        min-width: 180px;
-    }
-
-    .info {
-        width: 100%;
-        padding: 0;
-        gap: 8px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -143,22 +63,6 @@
         border-radius: 20px;
     }
 
-    .points {
-        width: 100%;
-        max-width: 320px;
-        gap: 20px;
-        padding: 16px;
-        border-radius: 20px;
-    }
-
-    .info {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .name {
-        font-size: 20px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -173,29 +77,4 @@
         border-radius: 16px;
     }
 
-    .points {
-        max-width: 90%;
-        gap: 12px;
-        border-radius: 16px;
-    }
-
-    .info {
-        max-width: 100%;
-    }
-
-    .quantity {
-        font-size: 20px;
-    }
-
-    .subtext,
-    .position,
-    .desc,
-    .avail,
-    .availContent {
-        font-size: 14px;
-    }
-
-    .name {
-        font-size: 18px;
-    }
 }

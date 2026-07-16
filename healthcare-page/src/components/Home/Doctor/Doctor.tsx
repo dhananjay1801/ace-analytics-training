@@ -1,12 +1,23 @@
+import DoctorInfo from '../DoctorInfo/DoctorInfo';
+import DoctorPoints from '../DoctorPoints/DoctorPoints';
 import styles from './Doctor.module.css'
 
-interface DoctorProp{
-    name : string;
+interface DoctorProp {
+    id: number,
+    name: string,
+    specialization: string,
+    certificates: number,
+    happyClients: string,
+    description: string,
+    availability: {
+        weekdays: string,
+        saturday: string,
+    },
     image: string;
 }
 
 const Doctor = (prop: DoctorProp) => {
-    const {name, image} = prop;
+    const { name, specialization, certificates, happyClients, description, availability, image } = prop;
 
     return (
         <div className={styles.card}>
@@ -14,28 +25,9 @@ const Doctor = (prop: DoctorProp) => {
                 <img src={image} alt="" />
             </div>
 
-            <div className={styles.points}>
-                <div>
-                    <span className={styles.quantity}>32</span>
-                    <span className={styles.subtext}>Certificates</span>
-                </div>
-                <div>
-                    <span className={styles.quantity}>1200+</span>
-                    <span className={styles.subtext}>Happy Clients</span>
-                </div>
-            </div>
+            <DoctorPoints certificates={certificates} happyClients={happyClients}/>
 
-            <div className={styles.info}>
-                <span className={styles.name}>{name}</span>
-                <span className={styles.position}>Leading Dentist</span>
-                <p className={styles.desc}>
-                    Meg is a leading dentist in our central hospital. She has made the name in california Silicon Valley when presenting the new technology, today called “anti-cancer”.
-                </p>
-
-                <span className={styles.avail}>Availability:</span>
-                <span className={styles.availContent}>Mon-Fri &nbsp; 10AM-9PM</span>
-                <span className={styles.availContent}>Sat &nbsp; 10AM-2PM</span>
-            </div>
+            <DoctorInfo name={name} specialization={specialization} description={description} availability={availability}/>
         </div>
     )
 }
