@@ -1,0 +1,23 @@
+.container {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #24BEE0;
+    padding: 16px 24px;
+}
+
+.header img {
+    width: 28px;
+    height: 28px;
+}
+
+.header span {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+}

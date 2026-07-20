@@ -1,0 +1,37 @@
+.infoCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgDiv {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 30px;
+}
+
+.content {
+    padding: 24px 8px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.content h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #062126;
+}
+
+.content p {
+    font-size: 15px;
+    font-weight: 400;
+    color: #06212699;
+}
+
+.tableWrapper {
+    padding: 0;
+}

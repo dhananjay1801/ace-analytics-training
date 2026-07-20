@@ -1,0 +1,78 @@
+.cover{
+    height: 520px;
+    width: 100%;
+    position: relative;
+}
+
+.cover img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 100% 50%;
+}
+
+
+.heroTitle{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    background-color: #062126B2;
+    font-weight: 700;
+    font-size: 48px;
+    color: white;
+    padding: 32px;
+    border-radius: 30px;
+}
+
+@media (max-width: 1200px) {
+    .cover {
+        height: 440px;
+    }
+
+    .heroTitle {
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 40px;
+        padding: 28px;
+    }
+}
+
+@media (max-width: 992px) {
+    .cover {
+        height: 380px;
+    }
+
+    .heroTitle {
+        font-size: 36px;
+        padding: 24px;
+        border-radius: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cover {
+        height: 300px;
+    }
+
+    .heroTitle {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 28px;
+        padding: 16px 24px;
+        border-radius: 16px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover {
+        height: 240px;
+    }
+
+    .heroTitle {
+        font-size: 22px;
+        padding: 12px 18px;
+        border-radius: 12px;
+    }
+}

@@ -1,47 +1,28 @@
 import styles from './DoctorsList.module.css'
 import Doctor from '../Doctor/Doctor'
-import {doctors} from '../../../data/data'
-import { useEffect, useState } from 'react';
+import type { DoctorProp } from '../../../pages/Home/Home';
 
-interface DoctorProp {
-  id: number,
-  name: string,
-  specialization: string,
-  certificates: number,
-  happyClients: string,
-  description: string,
-  availability: {
-      weekdays: string,
-      saturday: string,
-  },
-  image: string;
+interface DoctorsListProps {
+  doctors: DoctorProp[];
 }
 
-const DoctorsList = () => {
-  const [data, setData] = useState<DoctorProp[]>([]);
+const DoctorsList = (prop: DoctorsListProps) => {
 
-  useEffect(() => {
-      function fetchData(){
-        try{
-          setData(doctors);
-        }
-        catch(e){
-          console.log(e);
-          return []
-        }
-      }
-      fetchData()
-  }, [])
+  const { doctors } = prop;
 
   return (
     <div className={styles.container}>
-        <div className={styles.title}>Our Doctors</div>
+      <div className={styles.title}>Our Doctors</div>
 
+      {doctors.length > 0 ? (
         <div className={styles.doctors}>
-          {data.map(doc => (
-            <Doctor {...doc}/>
+          {doctors.map(doc => (
+            <Doctor key={doc.id} {...doc} />
           ))}
-        </div>
+          </div>
+          ) : (
+          <div>No matches found.</div>
+          )}
     </div>
   )
 }
