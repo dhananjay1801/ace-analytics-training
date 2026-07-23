@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const API_TARGET = 'https://e94f-182-70-123-229.ngrok-free.app'
+const API_TARGET = 'http://localhost:3000'
 
 // https://vite.dev/config/
 export default defineConfig({

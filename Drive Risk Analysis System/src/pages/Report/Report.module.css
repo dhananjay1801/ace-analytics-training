@@ -281,6 +281,49 @@
   color: #5f7388;
 }
 
+.paginationGoto {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.paginationGoto input {
+  width: 70px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.paginationGoto input:focus {
+  border-color: #2563eb;
+}
+
+.paginationGoto button {
+  height: 32px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.paginationGoto button:hover {
+  background-color: #1d4ed8;
+}
+
+.paginationGoto button:active {
+  transform: scale(0.98);
+}
+
 @media (max-width: 780px) {
   .metaGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

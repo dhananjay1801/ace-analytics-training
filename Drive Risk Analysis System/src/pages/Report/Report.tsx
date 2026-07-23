@@ -1,7 +1,7 @@
 import styles from './Report.module.css'
 import { getReports } from '../../api/api'
 import type { RiskAnalysis } from '../../components/Dashboard/Summary/SummaryTypes'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Global/Navbar/Navbar'
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
@@ -42,6 +42,7 @@ const Report = () => {
     const [filter, setFilter] = useState<string>('ALL');
     const [search, setSearch] = useState('');
     const navigate = useNavigate();
+    const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         let cancelled = false;
@@ -68,6 +69,14 @@ const Report = () => {
             cancelled = true;
         }
     }, [page, filter])
+
+    const handleGotoPage = () => {
+        const value = Number(inputRef.current?.value);
+        if (isNaN(value))
+            return;
+
+        setPage(Math.min(Math.max(value, 1), totalPages))
+    }
 
     const visibleReports = search.trim()
         ? reports.filter((report) =>
@@ -243,6 +252,20 @@ const Report = () => {
                         >
                             Next
                         </button>
+
+                        <div className={styles.paginationGoto}>
+                            <input
+                                type="number"
+                                ref={inputRef}
+                                defaultValue={page}
+                                min={1}
+                                max={totalPages}
+                            />
+
+                            <button onClick={handleGotoPage}>
+                                Go to Page
+                            </button>
+                        </div>
                     </div>
                 )}
             </section>
