@@ -1,0 +1,53 @@
+.container {
+  margin: 0 clamp(16px, 4vw, 40px) 28px;
+  border: 1px solid #d5e3f5;
+  border-radius: 18px;
+  padding: 24px 28px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(26, 43, 60, 0.06);
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a2b3c;
+}
+
+.header p {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #5f7388;
+}
+
+.arrow {
+  font-size: 20px;
+  color: #5f7388;
+}
+
+.count {
+  margin-top: 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.countValue {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a2b3c;
+  font-synthesis: none;
+}
+
+.countLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5f7388;
+}
